@@ -8,12 +8,16 @@ import io
 from deep_translator import GoogleTranslator
 
 # Set the encoding to UTF-8
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+if __name__ == '__main__':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 # # Now you can print Malayalam text without errors
 # print(malayalam_text)
 
-from googletrans import Translator
+try:
+    from googletrans import Translator  # optional
+except ImportError:
+    Translator = None
 
 def translate_text(text, dest_language):
     translator = Translator()
