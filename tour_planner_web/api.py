@@ -8,22 +8,32 @@ from opai import *
 
 
 
-import cv2
-import numpy as np
+try:
+    import cv2  # optional: OCR feature
+except ImportError:
+    cv2 = None
 import os
 import requests
 import io
 import json
 import uuid
-import pytesseract
+try:
+    import pytesseract  # optional: OCR feature
+except ImportError:
+    pytesseract = None
 from PIL import Image
-from test import checkans
+try:
+    from test import checkans  # optional: NLTK similarity
+except ImportError:
+    checkans = None
 
 api=Blueprint('api',__name__)
 
 
 
 def ocrgenerate(path):
+    if cv2 is None or pytesseract is None:
+        return "OCR is not available in this deployment (install opencv-python + pytesseract)."
     print("path===", path)
     image = cv2.imread(path)
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -70,9 +80,8 @@ def Student_upload_anwer():
 	out=""
 	data={}
 	image=request.files['image1']
-	path='static/handwrite/'+str(uuid.uuid4())+".png"
-	image.save(path)
-	val=ocrgenerate(path)
+	path=save_upload(image,str(uuid.uuid4())+".png")
+	val=ocrgenerate(os.path.join(HERE,path) if path.startswith('static/') else os.path.join('/tmp',path))
 	# print("------------------------------------------------------") 
 	# print("helooooooi",val)
 	# print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
@@ -221,7 +230,7 @@ def Customer_view_providers():
 def view_places():
 	data={}
 	# q="SELECT * FROM `packages`,`places`,`place_category` WHERE `packages`.`package_id` AND `place_category`.`category_id` AND `places`.`place_id` GROUP BY places.`place_name`"
-	q="SELECT * FROM `packages` INNER JOIN `places` ON `packages`.`package_id`=`places`.`place_id` INNER JOIN `place_category` ON `place_category`.`category_id`=`places`.`category_id` GROUP BY `place_name`"
+	q="SELECT * FROM `packages` INNER JOIN `places` ON `packages`.`places`=`places`.`place_id` INNER JOIN `place_category` ON `place_category`.`category_id`=`places`.`category_id` GROUP BY `place_name`"
 	print(q)
 	res=select(q)
 	if res:
@@ -238,7 +247,7 @@ def searchplace():
 	searchitem='%'+request.args['searchitem']+'%'
 	# q="SELECT * FROM `places` WHERE `place_name` LIKE '%s'"%(searchitem)
 	# q="SELECT * FROM `packages`,`places`,`place_category` WHERE `packages`.`package_id` AND `place_category`.`category_id` AND `places`.`place_id` AND `place_name`  like '%s'"%(searchitem)
-	q="SELECT * FROM `packages` INNER JOIN `places` ON `packages`.`package_id`=`places`.`place_id` INNER JOIN `place_category` ON `place_category`.`category_id`=`places`.`category_id` where `place_name`  like '%s' "%(searchitem)
+	q="SELECT * FROM `packages` INNER JOIN `places` ON `packages`.`places`=`places`.`place_id` INNER JOIN `place_category` ON `place_category`.`category_id`=`places`.`category_id` where `place_name`  like '%s' "%(searchitem)
 	print(q)
 	res=select(q)
 	data['status']="success"
@@ -574,7 +583,7 @@ def image():
 def Public_view_places():
 	data={}
 	# q="SELECT * FROM `packages`,`places`,`place_category` WHERE `packages`.`package_id` AND `place_category`.`category_id` AND `places`.`place_id` GROUP BY places.`place_name`"
-	q="SELECT * FROM `packages` INNER JOIN `places` ON `packages`.`package_id`=`places`.`place_id` INNER JOIN `place_category` ON `place_category`.`category_id`=`places`.`category_id` GROUP BY `place_name`"
+	q="SELECT * FROM `packages` INNER JOIN `places` ON `packages`.`places`=`places`.`place_id` INNER JOIN `place_category` ON `place_category`.`category_id`=`places`.`category_id` GROUP BY `place_name`"
 	print(q)
 	res=select(q)
 	if res:
@@ -591,7 +600,7 @@ def publicsearch():
 	searchitem='%'+request.args['searchitem']+'%'
 	# q="SELECT * FROM `places` WHERE `place_name` LIKE '%s'"%(searchitem)
 	# q="SELECT * FROM `packages`,`places`,`place_category` WHERE `packages`.`package_id` AND `place_category`.`category_id` AND `places`.`place_id` AND `place_name`  like '%s'"%(searchitem)
-	q="SELECT * FROM `packages` INNER JOIN `places` ON `packages`.`package_id`=`places`.`place_id` INNER JOIN `place_category` ON `place_category`.`category_id`=`places`.`category_id` where where pack_status='public' and `place_name`  like '%s' "%(searchitem)
+	q="SELECT * FROM `packages` INNER JOIN `places` ON `packages`.`places`=`places`.`place_id` INNER JOIN `place_category` ON `place_category`.`category_id`=`places`.`category_id` where pack_status='Public' and `place_name`  like '%s' "%(searchitem)
 	print(q)
 	res=select(q)
 	data['status']="success"
@@ -606,9 +615,8 @@ def User_upload_images():
 	out=""
 	data={}
 	image=request.files['image1']
-	path='static/handwrite/'+str(uuid.uuid4())+".png"
-	image.save(path)
-	val=ocrgenerate(path)
+	path=save_upload(image,str(uuid.uuid4())+".png")
+	val=ocrgenerate(os.path.join(HERE,path) if path.startswith('static/') else os.path.join('/tmp',path))
 	# print("------------------------------------------------------") 
 	# print("helooooooi",val)
 	# print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")

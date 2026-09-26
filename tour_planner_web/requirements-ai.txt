@@ -1,0 +1,7 @@
+# Optional heavy extras for local use: OCR (photo -> text), NLTK similarity, YOLO
+-r requirements.txt
+opencv-python
+numpy
+pytesseract
+nltk
+googletrans==4.0.0rc1

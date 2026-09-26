@@ -22,8 +22,7 @@ def provider_manage_place():
 		pname=request.form['pname']
 		discription=request.form['discription']
 		proimg=request.files['proimg']
-		path='static/'+str(uuid.uuid4())+proimg.filename
-		proimg.save(path)
+		path=save_upload(proimg,str(uuid.uuid4())+proimg.filename)
 		lati=request.form['lat']
 		longi=request.form['lon']
 
