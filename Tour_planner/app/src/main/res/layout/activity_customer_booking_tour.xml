@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Customer_booking_tour">
+
+
+
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Package Bokking"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/etbamount"
+                android:layout_width="match_parent"
+                android:hint="amount"
+                android:textStyle="bold|italic"
+                android:layout_height="wrap_content"
+                android:digits="0123456789"
+                android:focusableInTouchMode="false"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/etquan"
+                android:layout_width="match_parent"
+                android:hint="Enter Package Quantity"
+                android:textStyle="bold|italic"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:digits="0123456789"
+                android:inputType="textPersonName" />
+
+
+
+
+            <EditText
+                android:id="@+id/ettrdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tour date"
+                android:textStyle="bold|italic"
+                android:ems="10"
+                android:focusableInTouchMode="false"
+                android:inputType="number" />
+
+
+
+            <EditText
+                android:id="@+id/etamount"
+                android:layout_width="match_parent"
+                android:textStyle="bold|italic"
+                android:focusableInTouchMode="false"
+                android:hint="Total amount"
+                android:layout_height="wrap_content"
+                android:ems="10" />
+
+
+
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btreg"
+                android:layout_width="271dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/button"
+                android:text="Book Now" />
+
+            <ListView
+                android:id="@+id/lvview"
+                android:layout_width="match_parent"
+                android:background="#61121111"
+                android:layout_marginTop="20dp"
+                android:layout_height="match_parent" />
+
+
+
+
+</LinearLayout>

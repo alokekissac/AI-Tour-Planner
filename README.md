@@ -13,6 +13,23 @@ It has a **Flask + MySQL** backend and web dashboards, plus a native **Android**
 
 ---
 
+## 📸 Screenshots
+
+| | |
+|---|---|
+| ![Home](docs/screenshots/home.jpg) | ![Admin – places](docs/screenshots/admin-places.jpg) |
+| **Landing page** | **Admin: places by category** |
+| ![Admin – packages](docs/screenshots/admin-packages.jpg) | ![Admin – bookings](docs/screenshots/admin-bookings.jpg) |
+| **Admin: review & publish provider packages** | **Admin: bookings** |
+| ![Provider – bookings](docs/screenshots/provider-bookings.jpg) | ![Provider – enquiries](docs/screenshots/provider-enquiries.jpg) |
+| **Provider: confirm payments, track travellers** | **Provider: answer traveller enquiries** |
+| ![Admin – guides](docs/screenshots/admin-guides.jpg) | ![Admin – reviews](docs/screenshots/admin-reviews.jpg) |
+| **Admin: approve local guides** | **Admin: ratings & reviews** |
+
+<sub>Screenshots use the fictional Kerala demo data in <code>database/demo_data.sql</code>.</sub>
+
+---
+
 ## ✨ Features
 
 **Four roles, one platform**
@@ -52,12 +69,16 @@ Web dashboards (Jinja2) ─────────────┤  admin · pro
 │   ├── main.py             # app entry point (blueprints)
 │   ├── api.py              # REST API used by the Android app
 │   ├── admin.py · provider.py · guid.py · public.py
+│   ├── static/demo/        # demo place photos
 │   ├── opai.py             # OpenAI chatbot
 │   ├── translatetoanylang.py
 │   ├── templates/          # Jinja2 pages
 │   └── yolo/               # YOLOv3 object-detection script
 ├── Tour_planner/           # Android app (Java, Android Studio)
-└── database/schema.sql     # MySQL schema (no data)
+├── database/
+│   ├── schema.sql          # MySQL schema
+│   └── demo_data.sql       # fictional demo data
+└── docs/screenshots/
 ```
 
 ---
@@ -68,7 +89,10 @@ Web dashboards (Jinja2) ─────────────┤  admin · pro
 
 ```bash
 mysql -u root -p < database/schema.sql
+mysql -u root -p tour_planner < database/demo_data.sql   # optional: Kerala demo data
 ```
+
+Demo logins: **admin** `admin / admin` · **provider** `greentrails / demo123` · **guide** `arjun / demo123` · **traveller** `meera / demo123`
 
 The app expects MySQL on `localhost:3307`, user `root`, empty password. Change this in `tour_planner_web/database.py` if yours differs.
 

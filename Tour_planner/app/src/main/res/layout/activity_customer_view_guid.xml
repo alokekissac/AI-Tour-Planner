@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/tv"
+    android:layout_height="match_parent"
+    tools:context=".Customer_view_guid">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Guid"
+            android:layout_gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/textView2"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:textColor="#fff"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Choose an item to place order" />-->
+        <ListView
+            android:id="@+id/lvview"
+            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            android:background="#45121111"
+            android:layout_height="match_parent" >
+        </ListView>
+    </LinearLayout>
+
+</LinearLayout>

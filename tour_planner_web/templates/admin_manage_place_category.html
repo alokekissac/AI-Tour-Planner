@@ -1,0 +1,39 @@
+{% include 'admin_header.html'%}
+<div style=" background:url('/static/images/fly1.jpg') ; height: 300px; width: 100%; background-size: cover;"  >
+	</div>
+<center>
+	<form method="post">
+		<h2>Manage Category</h2>
+		<table class="table table-borderless" style="width: 1000px; background: wheat;">
+			<tr>
+				<th>Category Name</th>
+				<td><input type="text" name="cat" pattern="[a-zA-Z]+$"  class="form-control"></td>
+			</tr>
+			
+				<tr>
+					<td align="center" colspan="2"><input type="submit" name="submit" class="btn btn-success" style="width: 150px;"></td>
+				</tr>
+		</table>
+
+		<table class="table table-striped table-hover" style="width: 1000px; background: wheat;">	
+			<tr>
+				<th>Index</th>
+				<th>Place Category</th>	
+				<th><th>
+					
+				</th></th>
+			{% for i in data['view'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{i['category_name']}}</td>
+
+				<!-- <td><a href="?action=update&cat_id={{i['category_id']}}" class="btn btn-primary">Update</a></td>
+ -->				<td><a href="?action=delete&cat_id={{i['category_id']}}" class="btn btn-primary">Remove</a></td>
+
+			</tr>
+			{% endfor %}
+		</table>
+	</form>
+</center>
+
+{% include 'footer.html' %}

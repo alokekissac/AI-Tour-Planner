@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/tv"
+    android:layout_height="match_parent"
+    tools:context=".Customer_add_to_favorite">
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="PLACES AND PACKAGES"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold|italic" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btint"
+        android:layout_width="150dp"
+        android:background="@drawable/button"
+        android:layout_height="wrap_content"
+        android:text="Favorite Places" />
+
+    <!--    <TableRow-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:layout_height="wrap_content" >-->
+
+
+    <EditText
+        android:id="@+id/searchtxt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/search"
+        android:ems="10"
+        android:hint="Search..."
+        android:inputType="textPersonName"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/searchbtn"
+        android:layout_width="160dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="130dp"
+        android:text="SEARCH"
+        android:background="@drawable/button"
+        android:textStyle="bold" />
+    <!--    </TableRow>-->
+
+    <ListView
+        android:id="@+id/lvhot"
+        android:layout_width="match_parent"
+        android:background="#61121111"
+        android:layout_height="wrap_content">
+
+    </ListView>
+
+</LinearLayout>
