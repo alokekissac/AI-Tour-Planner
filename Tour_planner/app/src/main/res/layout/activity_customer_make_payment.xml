@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/tv"
+    android:layout_height="match_parent"
+    tools:context=".Customer_make_payment">
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:textStyle="italic|bold"
+        android:paddingLeft="100dp"
+        android:text="Make Payment"
+        android:textSize="30dp"
+        tools:layout_editor_absoluteX="212dp"
+        tools:layout_editor_absoluteY="86dp" />
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/etwrk"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:ems="10"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:hint="Work"-->
+    <!--        android:inputType="textPersonName" />-->
+
+    <EditText
+        android:id="@+id/amt"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/etno"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Card Number"
+        android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/cvv"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="CVV"
+        android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+
+        android:hint="Cardholder Name"
+        android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/exp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Expiry date"
+        android:inputType="textPersonName" />
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn2"
+        android:layout_width="200dp"
+        android:layout_marginLeft="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button"
+
+        android:text="PAY" />
+
+    <ListView
+        android:id="@+id/lv2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

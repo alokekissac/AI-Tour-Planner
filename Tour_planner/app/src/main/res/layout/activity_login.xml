@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/tv"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOGIN PAGE"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textStyle="italic|bold"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+    <EditText
+        android:id="@+id/etunm"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:textStyle="italic"
+        android:drawablePadding="20dp"
+        android:layout_marginLeft="20dp"
+        android:paddingLeft="20dp"
+        android:inputType="textPersonName"
+        android:hint="USERNAME"
+        android:layout_marginBottom="20dp"
+        android:ems="10" >
+
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/etpass"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:drawablePadding="20dp"
+        android:textStyle="italic"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+
+        android:paddingLeft="20dp"
+        android:hint="PASSWORD"
+        android:layout_marginBottom="20dp"
+        android:inputType="textPassword" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnlogin"
+        android:layout_width="276dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+
+        android:text="LOGIN" />
+
+    <TextView
+        android:id="@+id/tvuserreg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New User ? Sign up  User !"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textStyle="italic"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btplace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_margin="50dp"
+        android:layout_marginLeft="50dp"
+        android:text="Place And Package"
+        android:background="@drawable/button"
+        android:textStyle="bold" />
+
+</LinearLayout>

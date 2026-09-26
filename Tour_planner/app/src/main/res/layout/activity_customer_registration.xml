@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/tv"
+    android:layout_height="match_parent"
+    tools:context=".Customer_registration">
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="USER REGISTRATION"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <EditText
+                android:id="@+id/etf"
+                android:layout_width="match_parent"
+                android:textStyle="bold|italic"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:digits="abcdefghijklmnopqrstuvwxyz  ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:hint="Enter First Name"
+                android:inputType="textPersonName" >
+
+                <requestFocus />
+            </EditText>
+
+            <EditText
+                android:id="@+id/etl"
+                android:layout_width="match_parent"
+                android:hint="Enter last Name"
+                android:textStyle="bold|italic"
+                android:layout_height="wrap_content"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroup1"
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content" >
+
+                    <RadioButton
+                        android:id="@+id/radio0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Male" />
+
+                    <RadioButton
+                        android:id="@+id/radio1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Female" />
+
+
+                </RadioGroup>
+
+            </TableRow>
+            <EditText
+                android:id="@+id/etph"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Enter Phone number"
+                android:digits="0123456789"
+                android:inputType="phone"
+                android:textStyle="bold|italic" />
+
+            <EditText
+                android:id="@+id/etem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Email"
+                android:textStyle="bold|italic"
+                android:ems="10"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/etdob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter DOB"
+                android:textStyle="bold|italic"
+                android:ems="10"
+                android:focusableInTouchMode="false"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/eth"
+                android:layout_width="match_parent"
+                android:textStyle="bold|italic"
+                android:hint="Enter HouseName"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+                android:layout_height="wrap_content"
+                android:ems="10" />
+
+            <EditText
+                android:id="@+id/etpl"
+                android:layout_width="match_parent"
+                android:textStyle="bold|italic"
+                android:hint="Enter Place"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+                android:layout_height="wrap_content"
+                android:ems="10" />
+            <EditText
+                android:id="@+id/etdis"
+                android:layout_width="match_parent"
+                android:textStyle="bold|italic"
+                android:hint="Enter District"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+                android:layout_height="wrap_content"
+                android:ems="10" />
+            <EditText
+                android:id="@+id/etcoun"
+                android:layout_width="match_parent"
+                android:textStyle="bold|italic"
+                android:hint="Enter Country"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+                android:layout_height="wrap_content"
+                android:ems="10" />
+            <EditText
+                android:id="@+id/etpin"
+                android:layout_width="match_parent"
+                android:textStyle="bold|italic"
+                android:digits="0123456789"
+                android:hint="Enter Pin"
+                android:layout_height="wrap_content"
+                android:ems="10" />
+            <EditText
+                android:id="@+id/etpass"
+                android:layout_width="match_parent"
+                android:textStyle="bold|italic"
+                android:hint="Enter Passport Number"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789   "
+                android:layout_height="wrap_content"
+                android:ems="10" />
+
+
+            <EditText
+                android:id="@+id/etu"
+                android:layout_width="match_parent"
+                android:textStyle="bold|italic"
+                android:layout_height="wrap_content"
+                android:hint="Enter Username"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:ems="10" />
+
+            <EditText
+                android:id="@+id/etpa"
+                android:layout_width="match_parent"
+                android:textStyle="bold|italic"
+                android:layout_height="wrap_content"
+                android:hint="Enter Password"
+                android:ems="10"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:layout_marginBottom="30dp"
+                android:inputType="textPassword" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btreg"
+                android:layout_width="271dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/button"
+                android:text="REGISTER" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/tv"
+    android:layout_height="match_parent"
+    tools:context=".Customer_home">
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Home"
+                android:layout_gravity="center"
+                android:textStyle="italic|bold"
+                android:layout_marginTop="15dp"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <!-- 1st button (Left) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btplace"
+                    android:layout_width="237dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/button"
+                    android:text="Place and Package" />
+            </LinearLayout>
+
+            <!-- 2nd button (Right) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btbook"
+                    android:layout_width="224dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/button"
+                    android:text="My Booking" />
+            </LinearLayout>
+
+            <!-- 3rd button (Left) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btpro"
+                    android:layout_width="226dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/button"
+                    android:text="Tour Providers" />
+            </LinearLayout>
+
+            <!-- 4th button (Right) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btcom"
+                    android:layout_width="198dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/button"
+                    android:text="Send Complaint" />
+            </LinearLayout>
+
+            <!-- 5th button (Left) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btchat"
+                    android:layout_width="213dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/button"
+                    android:text="Message" />
+            </LinearLayout>
+
+            <!-- 6th button (Right) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btmark"
+                    android:layout_width="212dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/button"
+                    android:text="Locations" />
+            </LinearLayout>
+
+            <!-- 7th button (Left) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/bttransilate"
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/button"
+                    android:text="Translation" />
+            </LinearLayout>
+
+            <!-- 8th button (Right) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/bttransilatefile"
+                    android:layout_width="213dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/button"
+                    android:text="File Translation" />
+            </LinearLayout>
+
+            <!-- 9th button (Left) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btout"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/button"
+                    android:text="Logout" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
