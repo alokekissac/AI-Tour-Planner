@@ -1,15 +1,45 @@
+<div align="center">
+
 # 🧭 AI Tour Planner
 
-A full-stack tourism platform that connects **travellers, tour providers and local guides**, with AI features for multilingual travel: a chatbot, text translation, and OCR that reads and translates signs or menus from a photo.
+**A full-stack tourism platform that connects travellers, tour providers and local guides, with AI features for multilingual travel.**
 
-It has a **Flask + MySQL** backend and web dashboards, plus a native **Android** app for travellers.
+Flask + MySQL backend with role-based web dashboards · native Android app for travellers · OpenAI chatbot · translation · photo-to-text OCR
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Falokekissac%2FAI-Tour-Planner&project-name=ai-tour-planner)
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![Flask](https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
 ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white)
 ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white)
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=flat-square&logo=android&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
+
+</div>
+
+![Admin dashboard: tour packages](docs/screenshots/admin-packages.jpg)
+
+---
+
+## 📑 Contents
+
+[Overview](#-overview) · [Screenshots](#-screenshots) · [Features](#-features) · [Architecture](#%EF%B8%8F-architecture) · [Demo accounts](#-demo-accounts) · [Run locally](#-run-locally) · [Deploy to Vercel](#%EF%B8%8F-deploy-to-vercel) · [API](#-rest-api) · [Project structure](#%EF%B8%8F-project-structure) · [Limitations](#-known-limitations) · [Author](#-author)
+
+---
+
+## 🔭 Overview
+
+Travellers and local tour operators usually find each other through scattered channels, and language barriers make it harder still. AI Tour Planner puts the whole journey on **one platform**:
+
+- **Providers** publish places and tour packages, and admins review and publish them.
+- **Travellers** discover, book, pay for and review tours from an Android app.
+- **Local guides** register and pin useful spots on the map.
+- **AI features** help travellers abroad: a chatbot, translation into any language, and OCR that reads signs and menus from a photo.
+
+Built during my **Full-Stack Developer internship at Rizz Technologies**.
 
 ---
 
@@ -20,11 +50,11 @@ It has a **Flask + MySQL** backend and web dashboards, plus a native **Android**
 | ![Home](docs/screenshots/home.jpg) | ![Admin – places](docs/screenshots/admin-places.jpg) |
 | **Landing page** | **Admin: places by category** |
 | ![Admin – packages](docs/screenshots/admin-packages.jpg) | ![Admin – bookings](docs/screenshots/admin-bookings.jpg) |
-| **Admin: review & publish provider packages** | **Admin: bookings** |
+| **Admin: review and publish provider packages** | **Admin: bookings** |
 | ![Provider – bookings](docs/screenshots/provider-bookings.jpg) | ![Provider – enquiries](docs/screenshots/provider-enquiries.jpg) |
 | **Provider: confirm payments, track travellers** | **Provider: answer traveller enquiries** |
 | ![Admin – guides](docs/screenshots/admin-guides.jpg) | ![Admin – reviews](docs/screenshots/admin-reviews.jpg) |
-| **Admin: approve local guides** | **Admin: ratings & reviews** |
+| **Admin: approve local guides** | **Admin: ratings and reviews** |
 
 <sub>Screenshots use the fictional Kerala demo data in <code>database/demo_data.sql</code>.</sub>
 
@@ -32,102 +62,175 @@ It has a **Flask + MySQL** backend and web dashboards, plus a native **Android**
 
 ## ✨ Features
 
-**Four roles, one platform**
+### Four roles, one platform
 
-| Role | What they can do |
+| Role | Where | What they can do |
+|---|---|---|
+| 🛡️ **Admin** | Web | Approve or reject providers and guides, manage place categories, view users, bookings, ratings and complaints, and **publish packages** |
+| 🏢 **Tour provider** | Web | Register, add places (with photo and map location) and tour packages, confirm bookings and payments, answer enquiries |
+| 🧑‍🏫 **Local guide** | Web | Register for a place and **pin spots on the map** (viewpoints, tea factories and so on) for travellers |
+| 🎒 **Traveller** | Android | Search places, save favourites, book tours, pay, rate and review, send enquiries and complaints, chat with guides, see guides' pinned spots |
+
+### AI & ML
+
+| Feature | How |
 |---|---|
-| **Admin** | Approve tour providers & guides, manage place categories, view users, bookings, packages, ratings and complaints |
-| **Tour provider** | Register, add places and tour packages, view bookings, answer enquiries |
-| **Guide** | Register, mark locations on the map for travellers |
-| **Traveller (Android app)** | Search places, save favourites, book tours and pay, rate & review, send enquiries/complaints, chat with guides |
-
-**AI & ML features**
-
-- 🤖 **AI travel chatbot**: an OpenAI-powered assistant inside the app; conversations are stored per user.
-- 🌍 **Translate to any language**: in-app text translation via `deep-translator` (Google Translate).
-- 📷 **Photo → text → translation**: upload a photo of a sign or menu; OpenCV + Tesseract OCR extract the text so it can be translated.
-- 👁️ **Object detection**: YOLOv3 (COCO) experiment for recognising objects in images and video (`tour_planner_web/yolo/`).
-- 📝 NLP text similarity with NLTK (stemming, stop-word removal, cosine similarity).
+| 🤖 **AI travel chatbot** | OpenAI completion model with a travel persona; each user's conversation is stored |
+| 🌍 **Translate to any language** | `deep-translator` (Google Translate) |
+| 📷 **Photo → text** | OpenCV preprocessing + Tesseract OCR to read signs and menus, ready to translate |
+| 👁️ **Object detection** | YOLOv3 (COCO) script for images and video (`tour_planner_web/yolo/`) |
+| 📝 **Text similarity** | NLTK stemming and stop-word removal with cosine similarity |
 
 ---
 
 ## 🏗️ Architecture
 
-```
-Android app (Java)  ──HTTP──▶  Flask REST API (/api/*)  ──▶  MySQL
-                                     │
-Web dashboards (Jinja2) ─────────────┤  admin · provider · guide
-                                     │
-                                     ├─▶ OpenAI (chatbot)
-                                     ├─▶ Google Translate (deep-translator)
-                                     └─▶ OpenCV + Tesseract (OCR)
+```mermaid
+flowchart LR
+    A[📱 Android app<br/>Java] -- HTTP --> B[Flask REST API<br/>/api/*]
+    W[🖥️ Web dashboards<br/>Jinja2 + Bootstrap] --> F[Flask blueprints<br/>admin · provider · guide · public]
+    B --> D[(MySQL<br/>or SQLite demo)]
+    F --> D
+    B --> O[OpenAI<br/>chatbot]
+    B --> T[Google Translate<br/>deep-translator]
+    B --> C[OpenCV + Tesseract<br/>OCR]
 ```
 
-```
-.
-├── tour_planner_web/       # Flask backend + web dashboards
-│   ├── main.py             # app entry point (blueprints)
-│   ├── api.py              # REST API used by the Android app
-│   ├── admin.py · provider.py · guid.py · public.py
-│   ├── static/demo/        # demo place photos
-│   ├── demo.sqlite         # demo database used on Vercel
-│   ├── vercel.json
-│   ├── opai.py             # OpenAI chatbot
-│   ├── translatetoanylang.py
-│   ├── templates/          # Jinja2 pages
-│   └── yolo/               # YOLOv3 object-detection script
-├── Tour_planner/           # Android app (Java, Android Studio)
-├── database/
-│   ├── schema.sql          # MySQL schema
-│   └── demo_data.sql       # fictional demo data
-└── docs/screenshots/
-```
+- **One Flask app** with five blueprints: `public` (landing, login and registration), `admin`, `provider`, `guid` (guide) and `api` (the Android app).
+- **Two database modes:** MySQL for local and production use, or a bundled **SQLite demo database**, which is used automatically on Vercel.
+- **The Android app** talks only to `/api/*`; you set the server address on its IP settings screen.
 
 ---
 
-## 🚀 Run it locally
+## 🔑 Demo accounts
 
-**1. Database**
+| Role | Username | Password |
+|---|---|---|
+| Admin | `admin` | `admin` |
+| Tour provider | `greentrails` | `demo123` |
+| Local guide | `arjun` | `demo123` |
+| Traveller (Android) | `meera` | `demo123` |
+
+The demo data has 6 Kerala destinations (Munnar, Alleppey, Varkala, Kollam, Fort Kochi, Wayanad), 3 providers, 6 packages, bookings, reviews and guides. All people and companies in it are fictional.
+
+---
+
+## 🚀 Run locally
+
+**Quick start (no MySQL needed):**
+
+```bash
+git clone https://github.com/alokekissac/AI-Tour-Planner.git
+cd AI-Tour-Planner
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+DB_ENGINE=sqlite python tour_planner_web/main.py     # http://localhost:5819
+```
+
+**With MySQL:**
 
 ```bash
 mysql -u root -p < database/schema.sql
-mysql -u root -p tour_planner < database/demo_data.sql   # optional: Kerala demo data
+mysql -u root -p tour_planner < database/demo_data.sql     # optional demo data
+python tour_planner_web/main.py
 ```
 
-Demo logins: **admin** `admin / admin` · **provider** `greentrails / demo123` · **guide** `arjun / demo123` · **traveller** `meera / demo123`
-
-By default the app connects to MySQL on `localhost:3307` as `root` with no password. Override with `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`.
-
-> No MySQL? Run `DB_ENGINE=sqlite python main.py` to use the bundled demo database (`tour_planner_web/demo.sqlite`).
-
-**2. Backend**
+**Optional AI extras** (OCR, NLTK, YOLO):
 
 ```bash
-cd tour_planner_web
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt       # web app
-pip install -r requirements-ai.txt    # optional: OCR, NLTK, YOLO extras
-brew install tesseract                # for OCR (macOS)
-export OPENAI_API_KEY=sk-...          # for the chatbot
-python main.py                        # http://localhost:5819
+pip install -r tour_planner_web/requirements-ai.txt
+brew install tesseract                     # or: apt install tesseract-ocr
+export OPENAI_API_KEY=sk-...               # chatbot
 ```
 
-**3. Android app**: open `Tour_planner/` in Android Studio and point the base URL at your machine's IP on port `5819`.
+YOLO weights (240 MB) aren't committed; download [`yolov3.weights`](https://pjreddie.com/media/files/yolov3.weights) into `tour_planner_web/yolo/yolo-coco/`.
 
-> YOLO weights are not in the repo (they're 240 MB). Download [`yolov3.weights`](https://pjreddie.com/media/files/yolov3.weights) into `tour_planner_web/yolo/yolo-coco/` to use object detection.
+**Android app:** open `Tour_planner/` in Android Studio, run it, and enter your computer's IP address (port `5819`) on the IP settings screen.
+
+### Configuration
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `DB_ENGINE` | `mysql` (`sqlite` on Vercel) | Database mode |
+| `DB_HOST` · `DB_PORT` | `localhost` · `3307` | MySQL connection |
+| `DB_USER` · `DB_PASSWORD` · `DB_NAME` | `root` · *(empty)* · `tour_planner` | MySQL credentials |
+| `SECRET_KEY` | dev value | Signs Flask sessions (set this in production) |
+| `OPENAI_API_KEY` | — | Enables the chatbot |
 
 ---
 
 ## ☁️ Deploy to Vercel
 
-The web app deploys to Vercel as a Python serverless function (`tour_planner_web/vercel.json`).
+Click **Deploy with Vercel** at the top, or:
 
-1. On [vercel.com/new](https://vercel.com/new), import this repository.
-2. Set **Root Directory** to `tour_planner_web`.
-3. Optionally add environment variables: `SECRET_KEY` (session signing) and `OPENAI_API_KEY` (chatbot).
-4. Click **Deploy**.
+1. Import the repo at [vercel.com/new](https://vercel.com/new). No settings to change: Vercel detects the Flask app in `app.py`.
+2. Optionally add the `SECRET_KEY` and `OPENAI_API_KEY` environment variables.
+3. Click **Deploy**.
 
-On Vercel the app runs in **demo mode**. It uses the bundled SQLite database with the Kerala demo data, copied to `/tmp` at start-up, so it needs no external database and resets itself whenever the instance restarts. To use a real database instead, set `DB_ENGINE=mysql` plus the `DB_*` variables for any hosted MySQL. The heavy OCR/YOLO extras are left out of the serverless build.
+**How it runs on Vercel:**
+- `app.py` at the repo root exposes the Flask app from `tour_planner_web/`.
+- Everything in `public/` (CSS, JS, demo photos) is served from Vercel's CDN.
+- The app runs in **demo mode**: the bundled SQLite database is copied to `/tmp` at start-up, and uploads go to `/tmp` too. Visitors can click around freely, and it resets whenever the instance restarts.
+- To use a real database, set `DB_ENGINE=mysql` and the `DB_*` variables for any hosted MySQL.
+- `.vercelignore` leaves the Android project, docs and YOLO files out of the serverless bundle, and OCR is disabled in this lightweight build.
+
+---
+
+## 🔌 REST API
+
+The Android app uses these endpoints under `/api` (selection):
+
+| Endpoint | Purpose |
+|---|---|
+| `GET /api/login` | Sign in (returns role and IDs) |
+| `GET /api/Customer_registration` | Register a traveller |
+| `GET /api/Public_view_places` · `/api/publicsearch` | Browse and search published packages |
+| `GET /api/customer_add_favorite` · `/api/Customer_view_favorite` | Favourites |
+| `GET /api/Customer_booking_tour` · `/api/payment` | Book and pay |
+| `GET /api/Review` · `/api/viewrating` | Ratings and reviews |
+| `GET /api/Customer_send_enquiries` · `/api/Customer_send_complaint` | Enquiries and complaints |
+| `GET /api/Customer_view_guid` · `/api/Customer_view_marked_location` | Guides and their pinned spots |
+| `GET/POST /api/chat` · `/api/chatdetail` | Chat with guides |
+| `POST /api/user_chat_ai_bot` | AI chatbot |
+| `POST /api/trasilation` · `/api/filetrasilation` | Translate text |
+| `POST /api/User_upload_images` | Photo → OCR text |
+
+---
+
+## 🗂️ Project structure
+
+```
+.
+├── app.py                      # Vercel entrypoint (exposes the Flask app)
+├── requirements.txt            # Web app dependencies
+├── public/static/              # CSS, JS, images, demo photos (CDN on Vercel)
+├── tour_planner_web/           # Flask application
+│   ├── main.py                 # App factory + blueprints (run this locally)
+│   ├── public.py · admin.py · provider.py · guid.py
+│   ├── api.py                  # REST API for the Android app
+│   ├── database.py             # MySQL / SQLite demo mode + uploads
+│   ├── demo.sqlite             # Demo database used on Vercel
+│   ├── opai.py                 # OpenAI chatbot
+│   ├── translatetoanylang.py   # Translation helpers
+│   ├── templates/              # Jinja2 pages
+│   ├── yolo/                   # YOLOv3 object detection
+│   └── requirements-ai.txt     # Optional OCR / NLTK / YOLO extras
+├── Tour_planner/               # Android app (Java, Android Studio)
+├── database/
+│   ├── schema.sql              # MySQL schema
+│   └── demo_data.sql           # Fictional demo data
+└── docs/screenshots/
+```
+
+---
+
+## ⚠️ Known limitations
+
+This project began as an internship prototype. Before real production use, it would need:
+- **Parameterised SQL queries.** Queries are currently built with string formatting, which leaves them open to SQL injection.
+- **Hashed passwords** (e.g. `werkzeug.security`) instead of plain-text storage.
+- **A JSON API with token auth** in place of GET requests that carry credentials in the query string.
+- **An update of the OpenAI integration** to the current SDK and chat models.
 
 ---
 
@@ -135,5 +238,3 @@ On Vercel the app runs in **demo mode**. It uses the bundled SQLite database wit
 
 **Aloke**, AI Engineer & Full-Stack Developer · Dublin, Ireland
 [GitHub](https://github.com/alokekissac) · [LinkedIn](https://www.linkedin.com/in/alokekisssac/)
-
-Built during my Full-Stack Developer internship at Rizz Technologies.

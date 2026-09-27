@@ -81,7 +81,7 @@ def Student_upload_anwer():
 	data={}
 	image=request.files['image1']
 	path=save_upload(image,str(uuid.uuid4())+".png")
-	val=ocrgenerate(os.path.join(HERE,path) if path.startswith('static/') else os.path.join('/tmp',path))
+	val=ocrgenerate(os.path.join(ROOT,'public',path) if path.startswith('static/') else os.path.join('/tmp',path))
 	# print("------------------------------------------------------") 
 	# print("helooooooi",val)
 	# print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
@@ -616,7 +616,7 @@ def User_upload_images():
 	data={}
 	image=request.files['image1']
 	path=save_upload(image,str(uuid.uuid4())+".png")
-	val=ocrgenerate(os.path.join(HERE,path) if path.startswith('static/') else os.path.join('/tmp',path))
+	val=ocrgenerate(os.path.join(ROOT,'public',path) if path.startswith('static/') else os.path.join('/tmp',path))
 	# print("------------------------------------------------------") 
 	# print("helooooooi",val)
 	# print("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")

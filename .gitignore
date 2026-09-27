@@ -11,8 +11,8 @@ tour_planner_web/yolo/yolo-coco/yolov3.weights
 tour_planner_web/yolo/yolo-coco.zip
 
 # User uploads & runtime files (not source code)
-tour_planner_web/static/[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]-*
-tour_planner_web/static/handwrite/
+public/static/[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]-*
+public/static/handwrite/
 tour_planner_web/temp.png
 
 # Database dumps with real data — use database/schema.sql instead

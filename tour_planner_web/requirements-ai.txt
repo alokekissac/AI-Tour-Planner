@@ -1,5 +1,5 @@
 # Optional heavy extras for local use: OCR (photo -> text), NLTK similarity, YOLO
--r requirements.txt
+-r ../requirements.txt
 opencv-python
 numpy
 pytesseract
