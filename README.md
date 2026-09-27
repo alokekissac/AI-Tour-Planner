@@ -24,7 +24,7 @@ Demo logins: admin `admin` / `admin` · tour provider `greentrails` / `demo123` 
 
 </div>
 
-![Admin dashboard: tour packages](docs/screenshots/admin-packages.jpg)
+![AI Tour Planner home page](docs/screenshots/home.jpg)
 
 ---
 
