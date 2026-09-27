@@ -206,7 +206,7 @@ public class Student_upload_anwer extends Activity implements JsonResponse {
 	        // TODO Auto-generated method stub
 
 	        try {
-	        	 String q = "http://" +Ipsettings.ip+"/api/Student_upload_anwer";
+	        	 String q = Ipsettings.base()+"/api/Student_upload_anwer";
 	            Map<String, byte[]> aa = new HashMap<String, byte[]>();
 	            aa.put("image1",byteArray);
 	            aa.put("ftype", ftype.getBytes());

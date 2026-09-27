@@ -70,7 +70,7 @@ public class customemployee extends ArrayAdapter<String> {
 	        
 	        sh=PreferenceManager.getDefaultSharedPreferences(getContext());
 	        
-	       String pth = "http://"+sh.getString("ip", "")+"/"+image_path[position];
+	       String pth = Ipsettings.base(sh.getString("ip", ""))+"/"+image_path[position];
 	       pth = pth.replace("~", "");
 	        
 	        Log.d("-------------", pth);

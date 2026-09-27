@@ -26,7 +26,7 @@ public class JsonReq extends AsyncTask<String, Void, String> {
 		HttpURLConnection c = null;
 //		sh = PreferenceManager.getDefaultSharedPreferences(context);
 //		String ip=sh.getString("ipval", "");
-		String jsonReqUrl = "http://" +Ipsettings.ip+"/api/"+arg[0] ;
+		String jsonReqUrl = Ipsettings.base()+"/api/"+arg[0] ;
 		
 		//String jsonReqUrl = "http://192.168.1.17/"+arg[0] ;
 		

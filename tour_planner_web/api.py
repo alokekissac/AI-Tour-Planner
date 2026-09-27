@@ -148,12 +148,13 @@ def login():
 	data={}
 	username=request.args['username']
 	password=request.args['password']
-	latti=request.args['latti']
-	longi=request.args['longi']
+	latti=request.args.get('latti', '')
+	longi=request.args.get('longi', '')
 	q="SELECT * FROM login WHERE `username`='%s' AND `password`='%s'"%(username,password)
 	res=select(q)
-	q="UPDATE `customer` SET `latitude`='%s' , `longitude`='%s' where login_id='%s'"%(latti,longi,res[0]['login_id'])
-	update(q)
+	if res and latti and longi:
+		q="UPDATE `customer` SET `latitude`='%s' , `longitude`='%s' where login_id='%s'"%(latti,longi,res[0]['login_id'])
+		update(q)
 	if res:
 		data['status']="success"
 		data['data']=res
