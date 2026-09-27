@@ -14,6 +14,10 @@ import shutil
 import datetime
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(HERE)
+# Static files live in <repo>/public/static so Vercel serves them from its CDN;
+# locally Flask serves the same folder at /static.
+STATIC_DIR = os.path.join(ROOT, "public", "static")
 ENGINE = os.environ.get("DB_ENGINE") or ("sqlite" if os.environ.get("VERCEL") else "mysql")
 
 # ---------------------------------------------------------------- MySQL
@@ -90,7 +94,7 @@ def delete(q):
 # ---------------------------------------------------------------- uploads
 # Vercel's filesystem is read-only except /tmp, so uploads go there in demo
 # mode and are served by the /uploads/<name> route in main.py.
-UPLOAD_DIR = "/tmp/uploads" if ENGINE == "sqlite" else os.path.join(HERE, "static")
+UPLOAD_DIR = "/tmp/uploads" if ENGINE == "sqlite" else STATIC_DIR
 
 
 def save_upload(file_storage, name):

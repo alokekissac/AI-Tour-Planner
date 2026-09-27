@@ -1,0 +1,7 @@
+# Keep the serverless bundle small: only the web app is deployed.
+Tour_planner/
+docs/
+database/
+tour_planner_web/yolo/
+tour_planner_web/requirements-ai.txt
+**/__pycache__
