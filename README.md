@@ -6,6 +6,10 @@
 
 Flask + MySQL backend with role-based web dashboards · native Android app for travellers · OpenAI chatbot · translation · photo-to-text OCR
 
+### [🧭 Live demo: ai-tour-planner-7uzv.vercel.app](https://ai-tour-planner-7uzv.vercel.app/)
+
+Demo logins: admin `admin` / `admin` · tour provider `greentrails` / `demo123` · guide `arjun` / `demo123` (fictional data, resets on restart)
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Falokekissac%2FAI-Tour-Planner&project-name=ai-tour-planner)
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
