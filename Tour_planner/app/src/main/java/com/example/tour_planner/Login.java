@@ -1,7 +1,10 @@
 package com.example.tour_planner;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -25,6 +28,31 @@ public class Login extends AppCompatActivity implements JsonResponse {
     public static String log_id,user_type;
     SharedPreferences sh;
 
+    private static final int REQ_LOCATION = 101;
+
+    /** Start the location service, asking for the runtime permission first if needed. */
+    private void startLocation() {
+        if (LocationService.hasPermission(this)) {
+            startService(new Intent(getApplicationContext(), LocationService.class));
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION}, REQ_LOCATION);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQ_LOCATION) {
+            if (LocationService.hasPermission(this)) {
+                startService(new Intent(getApplicationContext(), LocationService.class));
+            } else {
+                Toast.makeText(this, "Location off - you can still log in and browse places", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +63,7 @@ public class Login extends AppCompatActivity implements JsonResponse {
 //        e.putString("val", "public");
 //        e.commit();
 
-        startService(new Intent(getApplicationContext(),LocationService.class));
+        startLocation();
 
         e1=(EditText)findViewById(R.id.etunm);
         e2=(EditText)findViewById(R.id.etpass);
@@ -65,7 +93,7 @@ public class Login extends AppCompatActivity implements JsonResponse {
 
                     JsonReq JR = new JsonReq();
                     JR.json_response = (JsonResponse) Login.this;
-                    String q ="/login?username=" + username + "&password=" + password+"&latti="+LocationService.lati+"&longi="+LocationService.logi;
+                    String q ="/login?username=" + username + "&password=" + password+"&latti="+(LocationService.lati==null?"":LocationService.lati)+"&longi="+(LocationService.logi==null?"":LocationService.logi);
                     q = q.replace(" ", "%20");
                     JR.execute(q);
 
