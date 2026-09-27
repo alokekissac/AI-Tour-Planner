@@ -149,7 +149,7 @@ export OPENAI_API_KEY=sk-...               # chatbot
 
 YOLO weights (240 MB) aren't committed; download [`yolov3.weights`](https://pjreddie.com/media/files/yolov3.weights) into `tour_planner_web/yolo/yolo-coco/`.
 
-**Android app:** open `Tour_planner/` in Android Studio, run it, and enter your computer's IP address (port `5819`) on the IP settings screen.
+**Android app:** open `Tour_planner/` in Android Studio and press Run. The first screen asks for the server: it's pre-filled with the live demo backend (`https://ai-tour-planner-7uzv.vercel.app`), so you can sign in straight away as `meera` / `demo123`. To use a local server instead, enter your computer's `IP:5819`.
 
 ### Configuration
 
